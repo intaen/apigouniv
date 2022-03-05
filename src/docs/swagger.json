@@ -1,0 +1,139 @@
+{
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This page is API documentation for master data of university in the world",
+        "title": "GOUNIV",
+        "contact": {
+            "name": "Developer",
+            "email": "intanmarsjaf@outlook.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:3040",
+    "paths": {
+        "/master/api": {
+            "get": {
+                "description": "This is API to get list of public API by auth or category",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Master Data"
+                ],
+                "summary": "List Public API",
+                "parameters": [
+                    {
+                        "type": "boolean",
+                        "description": "Params 1",
+                        "name": "auth",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Params 2",
+                        "name": "category",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/domain.SuccessResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/domain.BadRequestResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/master/university": {
+            "get": {
+                "description": "This is API to get list university",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Master Data"
+                ],
+                "summary": "List University",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Params 1",
+                        "name": "name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Params 2",
+                        "name": "country",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/domain.SuccessResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/domain.BadRequestResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "domain.BadRequestResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "example": "004"
+                },
+                "message": {
+                    "type": "string",
+                    "example": "[message]"
+                },
+                "result": {
+                    "type": "string",
+                    "example": "null"
+                }
+            }
+        },
+        "domain.SuccessResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "example": "000"
+                },
+                "message": {
+                    "type": "string",
+                    "example": "[message]"
+                },
+                "result": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

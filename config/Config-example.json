@@ -1,0 +1,9 @@
+{
+    "host": "",
+    "port": "",
+    "url": {
+        "countries": "https://api.first.org/data/v1/countries",
+        "universities": "http://universities.hipolabs.com",
+        "public-apis": "https://api.publicapis.org/entries"
+    }
+}

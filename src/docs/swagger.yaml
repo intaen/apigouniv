@@ -1,0 +1,93 @@
+definitions:
+  domain.BadRequestResponse:
+    properties:
+      code:
+        example: "004"
+        type: string
+      message:
+        example: '[message]'
+        type: string
+      result:
+        example: "null"
+        type: string
+    type: object
+  domain.SuccessResponse:
+    properties:
+      code:
+        example: "000"
+        type: string
+      message:
+        example: '[message]'
+        type: string
+      result:
+        type: object
+    type: object
+host: localhost:3040
+info:
+  contact:
+    email: intanmarsjaf@outlook.com
+    name: Developer
+  description: This page is API documentation for master data of university in the
+    world
+  title: GOUNIV
+  version: "1.0"
+paths:
+  /master/api:
+    get:
+      consumes:
+      - application/json
+      description: This is API to get list of public API by auth or category
+      parameters:
+      - description: Params 1
+        in: query
+        name: auth
+        type: boolean
+      - description: Params 2
+        in: query
+        name: category
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/domain.BadRequestResponse'
+      summary: List Public API
+      tags:
+      - Master Data
+  /master/university:
+    get:
+      consumes:
+      - application/json
+      description: This is API to get list university
+      parameters:
+      - description: Params 1
+        in: query
+        name: name
+        type: string
+      - description: Params 2
+        in: query
+        name: country
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/domain.BadRequestResponse'
+      summary: List University
+      tags:
+      - Master Data
+schemes:
+- http
+swagger: "2.0"
